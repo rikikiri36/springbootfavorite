@@ -42,6 +42,9 @@ public class FavoriteService {
     	if (favoriteOpt.isPresent()) {
     		Favorite favorite = favoriteOpt.get();
             favoriteRepository.deleteById(favorite.getId());	//idは上記から取得
+System.out.println("存在する");
+System.out.println("user" + user);
+System.out.println("house" + houseId);
 //		存在しない場合は気になる登録（新規作成）
     	} else {
             Favorite newFavorite = new Favorite();
@@ -52,6 +55,9 @@ public class FavoriteService {
             newFavorite.setHouse(house);
 
             favoriteRepository.save(newFavorite);
+System.out.println("存在しない");
+System.out.println("user" + user);
+System.out.println("house" + houseId);
         }
     }
 	

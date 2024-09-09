@@ -29,8 +29,8 @@
                             	<span>未ログイン</span>
 							</div>
 							<!--ログイン済-->
-							<div class="" sec:authorize="hasRole('ROLE_GENERAL')"><!--パスの指定が怪しい-->
-								<form th:action="@{/houses/editfavorite/__${house.getId()}}" method="get">
+							<div class="" sec:authorize="hasRole('ROLE_GENERAL')">
+								<form th:action="@{/houses/editfavorite/__${house.getId()}__}" method="get">
 									<!-- お気に入り済みの場合のボタン -->
 								    <button type="submit" th:if="${not favorite.empty}" class="btn btn-danger">
 								        &#9829; お気に入り解除
@@ -40,12 +40,7 @@
 								        &#9825; お気に入り追加
 								    </button>
 								</form>
-
-								<!--
-								<p th:if="${favorites.getId()}" class="fs-5 mb-3">気になる済</p>
-                            	<p th:unless="${favorites.getId()}" class="fs-5 mb-3">気になる前</p>  --> 
 							</div>
-							
                              
                              <h1 class="mb-4 text-center" th:text="${house.getName()}"></h1>                                                           
                              

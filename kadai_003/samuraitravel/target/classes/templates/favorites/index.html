@@ -28,8 +28,8 @@
              
                          <div class="col">                                                                          
                              <div class="d-flex justify-content-between flex-wrap">                                
-                                 <p th:if="${favoritePage.getTotalPages() > 1}" class="fs-5 mb-3" th:text="${'検索結果：' + favoritePage.getTotalElements() + '件' + '（' + (favoritePage.getNumber() + 1) + ' / ' + favoritePage.getTotalPages() + ' ページ）'}"></p> 
-                                 <p th:unless="${favoritePage.getTotalPages() > 1}" class="fs-5 mb-3" th:text="${'検索結果：' + favoritePage.getTotalElements() + '件'}"></p>                                 
+                                 <p th:if="${favoritePage.getTotalPages() > 1}" class="fs-5 mb-3" th:text="${'お気に入り一覧：' + favoritePage.getTotalElements() + '件' + '（' + (favoritePage.getNumber() + 1) + ' / ' + favoritePage.getTotalPages() + ' ページ）'}"></p> 
+                                 <p th:unless="${favoritePage.getTotalPages() > 1}" class="fs-5 mb-3" th:text="${'お気に入りした民宿がありません'}"></p>                                 
                              </div>   
                                                                          
                              <div class="mb-3" th:each="favorite : ${favoritePage}">

@@ -101,14 +101,18 @@ public class HouseController {
 //    お気に入り登録・解除		⭐︎favoritecontrollarを作るべき？
     @GetMapping("/editfavorite/{id}")
     public String toggleFavorite(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable(name = "id") Integer id, RedirectAttributes redirectAttributes) {
+System.out.println(id);
+System.out.println(id.getClass().getSimpleName());
     	User user = userDetailsImpl.getUser();
  
     	// お気に入りの追加または削除処理
-        favoriteService.favoriteEdit(user, id);
-
-        redirectAttributes.addFlashAttribute("message", "お気に入りを登録・解除");
-
+        try {
+    	favoriteService.favoriteEdit(user, id);
+        }
+        catch(Exception e) {
+        	System.out.println("エラー");
+        }
         // 処理後にリダイレクト
-        return "redirect:/houses/show/{id}/";
+        return "redirect:/houses/{id}";
     }
 }
